@@ -3,7 +3,8 @@ import { StyleSheet, Text, View } from 'react-native';
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import rootReducer from './reducers'
-//import DevTools from './Containers/DevTools'
+
+
 
 
 export default class App extends React.Component {
@@ -11,7 +12,7 @@ export default class App extends React.Component {
     return (
       <Provider store={createStore(rootReducer)}>
         <View style={styles.container}>
-          <Text>Open up App.js to start working on your app!</Text>
+          <Text>Hello Tata!</Text>
         </View>
       </Provider>
     );
