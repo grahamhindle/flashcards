@@ -1,8 +1,8 @@
 import { createAction } from "redux-actions"
-import { GET_DECKS,ADD_DECK} from '../actions/deckActions'
+import { GET_DECKS,ADD_DECK} from '../constants/actionTypes'
 
 export const getDecks = createAction(GET_DECKS)
-export const addDeck= crerateAction(ADD_DECK)
+export const addDeck= createAction(ADD_DECK)
 
 export function getDeckData() {
   return (dispatch) => {

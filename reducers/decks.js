@@ -9,7 +9,7 @@ const decks = handleActions(
   {
   
   
-  [GET_DECKS]:(state ,action) => state,
+  [GET_DECKS]:(state ,action) => action.payload,
 
   [ADD_DECK]: (state,action) => state
 
