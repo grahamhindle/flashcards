@@ -1,5 +1,5 @@
 
-  const decks=[
+  const decks=
         {
       '10001': {
         id:'10001',
@@ -9,26 +9,24 @@
       },
       '10002': {
         id:'10002',
-        name:'mydeck1',
+        name:'mydeck2',
         questions:['q1001','q1003'],
         dateCreated:'',
         },
       '10003': {
         id:'10003',
-        name:'mydeck1',
+        name:'mydeck3',
         questions:['q1002','q1004'],
         dateCreated:'',
         },
       '10004': {
         id:'10004',
-        name:'mydeck1',
+        name:'mydeck4',
         questions:['q1001','q1002','q1003','q1004'],
         dateCreated:'',
         },
-      
-    
-    }
-  ]
+      }
+  
 
     let questions= {
       'q1003':{
