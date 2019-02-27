@@ -1,21 +1,38 @@
-import React from 'react';
-import { Button, View, Text } from 'react-native';
-import { createStackNavigator, createAppContainer } from 'react-navigation'; // Version can be specified in package.json
+import React from 'react'
+import { createBottomTabNavigator, createAppContainer } from 'react-navigation'
 import HomeScreen from '../screens/HomeScreen'
-import DetailsContainer from '../Containers/DetailsContainer'
+import DetailsContainer from '../Containers/DecksContainer'
+import { Icon } from 'native-base'
+
+
+const RootStack = createBottomTabNavigator(
+	{
+		Home: HomeScreen,
+		Details: DetailsContainer,
+	},
+
+	{
+		defaultNavigationOptions: ({ navigation }) => ({
+			tabBarIcon: ({ focused,  tintColor }) => {
+				const { routeName } = navigation.state
+				let IconComponent = Icon
+				let iconName
+				if (routeName === 'Home') {
+					iconName = `ios-information-circle${focused ? '' : '-outline'}`
+				} else if (routeName === 'Settings') {
+					iconName = `ios-options${focused ? '' : '-outline'}`
+				}
+				// You can return any component that you like here!
+				return <IconComponent name={iconName} size={25} color={tintColor} />
+			},
+		}),
+		tabBarOptions: {
+			activeTintColor: 'tomato',
+			inactiveTintColor: 'gray',
+		},
+	}
+)
 
 
 
-const RootStack = createStackNavigator(
-  {
-    Home: HomeScreen,
-    Details: DetailsContainer,
-  },
-  {
-    initialRouteName: 'Home',
-  }
-);
-
-
-
-export default RootStack
+export default createAppContainer(RootStack)

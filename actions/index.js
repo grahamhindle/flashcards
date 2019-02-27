@@ -4,7 +4,7 @@ import decks from '../reducers/decks'
 
 
 const rootReducer =  combineReducers({
-  decks,
+	decks,
 })
 
 export default rootReducer
