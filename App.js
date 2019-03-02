@@ -12,7 +12,7 @@ export default class App extends React.Component {
 	render() {
 		return (
 			<Provider store={store}>
-				<Text>Home Screen</Text>
+				
 				<RootStack/>
 			</Provider>
 		)

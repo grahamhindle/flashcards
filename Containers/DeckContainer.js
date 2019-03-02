@@ -1,18 +1,17 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import Decks from '../screens/Decks'
+import Deck from '../screens/Deck'
 import { getDeckData } from '../actions/deckActions'
 
 
-const DecksContainer = props =>  <Decks {...props}/> 
+const DeckContainer = props =>  <Deck {...props}/> 
 
-const mapStateToProps = ({decks})=> {
+const mapStateToProps = ({Deck})=> {
 	return {
-		decks: decks,
-		
+		Deck: Deck,
 	}
 }
 export default connect(
 	mapStateToProps,
 	{ getDeckData },
-)(DecksContainer)
+)(DeckContainer)

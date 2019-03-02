@@ -1,7 +1,7 @@
 import { createAction } from 'redux-actions'
 import { GET_DECKS,ADD_DECK} from '../constants/actionTypes'
 import {apiStart,apiEnd} from '../actions/apiActions'
-import {_getDecks } from '../utils/_data'
+import {_getDecks, _addDeck } from '../utils/_data'
 
 export const getDecks = createAction(GET_DECKS)
 export const addDeck= createAction(ADD_DECK)
@@ -15,6 +15,20 @@ export function getDeckData() {
 				dispatch(apiEnd('GET_DECKS'))
 			
 			})
+	}
+}
+
+
+
+export function addNewDeck(deckName) {
+	
+	return (dispatch) => {
+		return _addDeck (deckName)
+        .then((formattedDeck) => {
+		dispatch(apiStart('ADD_DECK'))
+		dispatch(addDeck(formattedDeck))
+		dispatch(apiEnd('ADD_DECK'))
+		})
 	}
 }
 

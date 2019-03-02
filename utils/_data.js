@@ -1,5 +1,7 @@
+import _ from 'lodash'
 
-const decks=
+
+let decks=
 {
 	'10001': {
 		id:'10001',
@@ -67,6 +69,77 @@ export function _getQuestions () {
 		setTimeout(() => res({...questions}), 1000)
 	})
 }
+export function formatNewDeck (deckName) {
+	
+	return {
+    id: generateUID(),
+    timestamp: Date.now(),
+    name: deckName,
+    questions: [],
+	}
+}
+	
+  
+export function _addDeck (deckName) {
+  return new Promise((res, rej) => {
+    
+    
+    const formattedDeck = formatNewDeck(deckName);
+    
+    setTimeout(() => {
+      decks = {
+        ...decks,
+        [formattedDeck.id]: formattedDeck
+      }
+			
+      res(formattedDeck)
+    }, 500)
+  })
+}
+
+
+function formatNewQuestion (  {questionText, answerText, deck }) {
+	return {
+
+	  id: generateUID(),
+	  timestamp: Date.now(),
+	  deck,
+	  questionText: questionText,
+	  answerText: answerText,
+	}
+  }
+  
+  export function _saveNewQuestion (question) {
+	return new Promise((res, rej) => {
+	  const formattedQuestion = formatNewQuestion(question);
+	  
+	  setTimeout(() => {
+		questions = {
+		  ...questions,
+		  [formattedQuestion.id]: formattedQuestion
+		}
+		
+		decks = {
+		  ...decks,
+		  [id]: {
+			...decks[id],
+			questions: decks[id].questions.concat([formattedQuestion.id])
+		  }
+		}
+		
+		res(formattedQuestion)
+	  }, 500)
+	})
+  }
+  
+
+
+export function generateUID () {
+	return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
+  }
+
+
+
 export default decks
 		
 
