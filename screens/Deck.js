@@ -39,21 +39,26 @@ const styles = StyleSheet.create({
 class DeckScreen extends React.Component {
 	
     static navigationOptions = ({ navigation }) => ({
+		
 		headerRight: (
 			<Button
-			onPress={() => navigation.navigate('AddQuestion')}
-			title="Add Question"
-			color="#fff"
+				onPress={() => navigation.navigate('AddQuestion',
+				{deckId: navigation.getParam('deckId', "NO-ID"), deckName: navigation.getParam('deckName', "NO-ID")}
+				)}
+				title="Add Question"
+				color="#fff"
 		  />
-		  ),
-		
+		  ),	
 		title: navigation.getParam('deckName', "NO-ID")
-	
-	  })
-	render() {
+		})
+		
+
 		startQuiz=()=>{
-			alert('quiz started')
+			this.props.navigation.navigate('Quiz',
+			{deckId: this.props.deck.id })
 		}
+	render() {
+		
 		
 		const id = this.props.navigation.getParam('deckId', "NO-ID")
 		const deck = this.props.deck
@@ -74,7 +79,10 @@ class DeckScreen extends React.Component {
             </CardItem>
             <CardItem cardBody>
               <Image source={{uri: 'https://facebook.github.io/react/logo-og.png'}} style={{height: 400, width: null, flex: 1}}/>
-            </CardItem>
+						</CardItem>
+						
+
+
 			<CardItem style={{width:'100%'}}>
 			<TouchableOpacity
 				style={styles.button}
@@ -99,7 +107,7 @@ const mapStateToProps = ({decks},ownProps)=> {
 	const id = ownProps.navigation.getParam('deckId')
 	
 	return {
-
+		
 		deck: _.find(decks,x => x.id === id)
 		
 	}

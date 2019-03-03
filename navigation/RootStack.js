@@ -4,6 +4,7 @@ import Decks from '../screens/Decks'
 import AddDeck from '../screens/AddDeck'
 import Deck from '../screens/Deck' 
 import AddQuestion from '../screens/AddQuestion'
+import Quiz from '../screens/Quiz'
 
 const RootStack = createStackNavigator(
 	{
@@ -11,6 +12,7 @@ const RootStack = createStackNavigator(
 	Deck: Deck,
 	AddDeck:AddDeck,
 	AddQuestion: AddQuestion,
+	Quiz: Quiz,
 
 	},
 	{

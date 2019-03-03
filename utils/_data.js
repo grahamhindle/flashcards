@@ -98,20 +98,19 @@ export function _addDeck (deckName) {
 }
 
 
-function formatNewQuestion (  {questionText, answerText, deck }) {
+export function formatNewQuestion (  questionText, answerText ) {
 	return {
 
 	  id: generateUID(),
 	  timestamp: Date.now(),
-	  deck,
 	  questionText: questionText,
 	  answerText: answerText,
 	}
   }
   
-  export function _saveNewQuestion (question) {
+  export function _saveNewQuestion (questionText,answerText,id) {
 	return new Promise((res, rej) => {
-	  const formattedQuestion = formatNewQuestion(question);
+	  const formattedQuestion = formatNewQuestion(questionText,answerText)
 	  
 	  setTimeout(() => {
 		questions = {
@@ -119,13 +118,15 @@ function formatNewQuestion (  {questionText, answerText, deck }) {
 		  [formattedQuestion.id]: formattedQuestion
 		}
 		
-		decks = {
+
+		/*decks = {
 		  ...decks,
 		  [id]: {
 			...decks[id],
 			questions: decks[id].questions.concat([formattedQuestion.id])
 		  }
 		}
+		*/
 		
 		res(formattedQuestion)
 	  }, 500)

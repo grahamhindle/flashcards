@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container, Right, Icon,Text,  Button, Content, Form, Item, Input } from 'native-base'
+import { Container, Card, CardItem,Right, Icon,Text,  Button, Content, Form, Item, Input } from 'native-base'
 import {connect} from 'react-redux'
 import { addNewDeck } from '../actions/deckActions'
 
@@ -26,23 +26,24 @@ class AddDeck extends Component {
     return (
       <Container> 
         <Content>
-          <Form>
-            <Item last>
-              <Input 
-              id='deckName'
-              placeholder="Deck Name"
-              onChangeText={(deck) => this.setState({deck})}
-              value={this.state.deck}> 
-            </Input>
-            </Item>
-          </Form>
+        <Card>
+        <CardItem>
+          <Input 
+            id='deckName'
+            placeholder="Deck Name"
+            onChangeText={(deck) => this.setState({deck})}
+            value={this.state.deck}> 
+        </Input>
+          </CardItem>
+          <CardItem>
           <Button 
-          full 
-          onPress= {this.handleNewDeck}>
-          <Text>Submit</Text>
-        </Button >
+            full 
+            onPress= {this.handleNewDeck}>
+            <Text>Submit</Text>
+            </Button>
+          </CardItem>
+        </Card>
         </Content>
-       
       </Container>
     )
   }

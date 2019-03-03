@@ -6,6 +6,7 @@ import { Font } from 'expo';
 import { Ionicons } from '@expo/vector-icons'
 import { connect } from 'react-redux'
 import { getDeckData } from '../actions/deckActions'
+import { getQuestionData} from '../actions/questionActions'
 
 
 
@@ -31,6 +32,7 @@ class Decks extends React.Component {
 			...Ionicons.font,
 		});
 		this.props.getDeckData()
+		this.props.getQuestionData()
 	}
 	render() {
 		const {decks} = this.props
@@ -83,6 +85,7 @@ const mapStateToProps = ({decks})=> {
 }
 export default connect(
 	mapStateToProps,
-	{ getDeckData },
+	{ getDeckData,
+		getQuestionData },
 )(Decks)
 

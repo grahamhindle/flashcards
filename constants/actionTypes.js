@@ -2,6 +2,7 @@ export const GET_DECKS = 'GET_DECKS'
 export const ADD_DECK = 'ADD_DECK'
 export const GET_QUESTIONS='GET_QUESTIONS'
 export const ADD_QUESTION='ADD_QUESTION'
+export const ADD_DECK_QUESTION='ADD_DECK_QUESTION'
 
 // API actions
 export const API_START='API_START'
