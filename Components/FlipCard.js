@@ -50,8 +50,12 @@ class FlipCard extends Component {
         }
 
         return (
+          <View>
+          <TouchableOpacity style= {styles.button} onPress={() => this.flipCard()}>
+              <Text>Show Answer</Text>
+
+            </TouchableOpacity>
             <Container style={styles.container}>
-            <Text style={{fontSize:40}}>This is deck wwww</Text>
             <View>
               <Animated.View style={[styles.flipCard, frontAnimatedStyle]}>
                 <Text style={styles.flipText}>
@@ -62,13 +66,14 @@ class FlipCard extends Component {
                 <Text style={styles.flipText}>
                   This text is your Answer
                 </Text>
+                
               </Animated.View>
               
             </View>
-            <TouchableOpacity style= {styles.button} onPress={() => this.flipCard()}>
-              <Text>Show Answer</Text>
-            </TouchableOpacity>
+           
           </Container>
+          
+            </View>
         )
     }
 }

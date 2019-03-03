@@ -1,6 +1,7 @@
 import React from 'react'
-import { View, Text, Button } from 'react-native'
+import {  Button } from 'react-native'
 import FlipCard from '../Components/FlipCard'
+import { View,Text,DeckSwiper} from 'native-base'
 import {connect} from 'react-redux'
 
 class Quiz extends React.Component {
@@ -21,12 +22,15 @@ class Quiz extends React.Component {
 		console.log('quiz',this.props.questionSet)
 		const {questionSet} = this.props
 		return (
-						<View style={{ flex: 1, alignItems: 'center', justifyContent: 					'center' }}>
-								{questionSet.map(x => 
-									<FlipCard id={x}
-									front={`front ${x}`}>
-                </FlipCard>
-									)}
+						<View >
+								<DeckSwiper
+									dataSource={questionSet}
+									renderItem={item =>
+									<FlipCard key={item}
+									front={`front ${item}`}>
+                	</FlipCard>
+									}
+									/>
                 
 						</View>
 		)
