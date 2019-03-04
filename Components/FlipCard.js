@@ -1,10 +1,13 @@
 import React,{Component} from 'react'
-import {Container, Segment, Header, Text,Button,Content} from 'native-base'
+import {Container, Card,CardItem, Body, Left, Text} from 'native-base'
 import {Animated, StyleSheet,View, TouchableOpacity} from 'react-native'
-import Item from '../native-base-theme/components/Item';
+
+
 
 class FlipCard extends Component {
-
+  state = {
+    textString: 'Show Answer'
+  }
     componentWillMount(){
         this.animatedValue = new Animated.Value(0);
         this.value = 0;
@@ -22,7 +25,9 @@ class FlipCard extends Component {
     }
 
     flipCard = () => {
+      
         if (this.value >= 90) {
+            this.setState({textString :'Show Answer'})
             Animated.timing(this.animatedValue,{
               toValue: 0,
               duration:700,
@@ -30,6 +35,7 @@ class FlipCard extends Component {
               
             }).start();
           } else {
+            this.setState({textString :'Show Question'})
             Animated.timing(this.animatedValue,{
               toValue: 180,
               duration:700
@@ -53,8 +59,21 @@ class FlipCard extends Component {
 
         return (
          
-            <Container style={styles.container}>
-            <View>
+            
+            
+              <Card >
+              <CardItem>
+              <Left>
+                
+                <Body>
+                  <Text>NativeBase</Text>
+                  <Text note>GeekyAnts</Text>
+                </Body>
+              </Left>
+            </CardItem>
+              <CardItem style={[styles.flipCard]}>
+                
+              
               <Animated.View style={[styles.flipCard, frontAnimatedStyle]}>
                 <Text style={styles.flipText}>
                   {this.props.front}
@@ -62,18 +81,24 @@ class FlipCard extends Component {
               </Animated.View>
               <Animated.View style={[backAnimatedStyle, styles.flipCard, styles.flipCardBack]}>
                 <Text style={styles.flipText}>
-                  This text is your Answer
+                  {this.props.back}
                 </Text>
-                
               </Animated.View>
-              
-            </View>
-            <View>
-            <TouchableOpacity style= {styles.button} onPress={() => this.flipCard()}>
-                <Text>Show Answer</Text>
-              </TouchableOpacity>
-            </View>
-          </Container>
+            </CardItem>
+            <CardItem>
+              <Left>
+                <TouchableOpacity style= {styles.button} onPress={() => this.correct()}>
+                  <Text>Correct ?</Text>
+                </TouchableOpacity>
+              </Left>
+              <Body>
+                <TouchableOpacity style= {styles.button} onPress={() => this.flipCard()}>
+                  <Text>{this.state.textString}</Text>
+                </TouchableOpacity>
+              </Body>
+            </CardItem>
+            </Card>
+          
           
           
           
@@ -86,41 +111,42 @@ class FlipCard extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: "flex-start",
+        justifyContent: "center",
         alignItems:'center',
         fontSize:40
       },
+     
     flipCard:{
+        flex:1,
         width:400,
-        height:600,
-        marginTop: '10%',
+        height:400,
         alignItems:'center',
         justifyContent: 'center',
-        backgroundColor: 'gray',
-        borderStyle: 'solid',
-        borderColor: 'blue',
-        borderWidth: 2,
-        borderRadius: 25,
+        backgroundColor: '#fff9c4',
         backfaceVisibility: 'hidden'
     },
     flipCardBack: {
         
-        backgroundColor: 'white',
+        
+        backgroundColor: '#ffee58',
         position: 'absolute',
-        top: 0
+        top:0
     },
     flipText: {
-        width: 90,
-        fontSize: 20,
-        color: 'white',
+        
+        width: 100,
+        fontSize: 24,
+        color: 'black',
         fontWeight: 'bold',
+        
       },
       button: {
-        flexDirection:'row',
+        
         alignItems: 'center',
-        backgroundColor: '#DDDDDD',
+        backgroundColor: 'gray',
+        color:'white',
         padding: 10,
-        width:'100%',
+        
       },
 })
 

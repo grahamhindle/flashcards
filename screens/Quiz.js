@@ -1,7 +1,7 @@
 import React from 'react'
 import {  Button } from 'react-native'
 import FlipCard from '../Components/FlipCard'
-import { View,Container , Text,DeckSwiper} from 'native-base'
+import { View,Card, Container , Text,DeckSwiper} from 'native-base'
 import {connect} from 'react-redux'
 import {selectQuestions , selectDeck} from '../Selectors/questionSelector'
 
@@ -22,16 +22,21 @@ class Quiz extends React.Component {
 	render() {
 		
 		const {questionSet} = this.props
+		console.log('qset',questionSet)
 		return (
-				
-								<DeckSwiper
-									dataSource={questionSet}
-									renderItem={item =>
-									<FlipCard key={item.id}
-									front={`front ${item.questionText}`}>
-                	</FlipCard>
-									}
-									/>
+				<Container>
+					<DeckSwiper
+						dataSource={questionSet}
+						renderItem={item =>
+						<FlipCard key={item.id}
+						front={item.questionText}
+						back={item.answerText}>
+						</FlipCard>
+					
+						}
+						/>
+						
+				</Container>
 		)
 	}  
 }

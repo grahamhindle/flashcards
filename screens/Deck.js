@@ -77,7 +77,7 @@ class DeckScreen extends React.Component {
               </Left>
             </CardItem>
             <CardItem cardBody>
-              <Image source={{uri: 'https://facebook.github.io/react/logo-og.png'}} style={{height: 400, width: null, flex: 1}}/>
+              <Image source={require('../images/card.jpg')} style={{height: 400, width: null, flex: 1}}/>
 						</CardItem>
 						
 
