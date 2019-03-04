@@ -87,12 +87,12 @@ class FlipCard extends Component {
             </CardItem>
             <CardItem>
               <Left>
-                <TouchableOpacity style= {styles.button} onPress={() => this.correct()}>
+                <TouchableOpacity  onPress={() => this.correct()}>
                   <Text>Correct ?</Text>
                 </TouchableOpacity>
               </Left>
               <Body>
-                <TouchableOpacity style= {styles.button} onPress={() => this.flipCard()}>
+                <TouchableOpacity  onPress={() => this.flipCard()}>
                   <Text>{this.state.textString}</Text>
                 </TouchableOpacity>
               </Body>
