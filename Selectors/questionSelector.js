@@ -17,10 +17,6 @@ export const selectQuestions = createSelector(
   [getQuestions,selectDeck],
   (questions,deck) => {
     //find questions for deck
-      console.log('questions', questions)
-      console.group('decks',deck)
-      const obj =  _.filter(questions, x => deck.questions.includes(x) )
-      console.log('includes',obj)
-      return obj
+      return _.filter(questions, x => deck.questions.includes(x.id) )
   }
 )

@@ -27,8 +27,8 @@ class Quiz extends React.Component {
 								<DeckSwiper
 									dataSource={questionSet}
 									renderItem={item =>
-									<FlipCard key={item}
-									front={`front ${item}`}>
+									<FlipCard key={item.id}
+									front={`front ${item.questionText}`}>
                 	</FlipCard>
 									}
 									/>

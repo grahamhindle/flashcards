@@ -51,6 +51,12 @@ let questions= {
 	},
 	'q1005':{
 		id:'q1005',
+		questionText: 'this is 5',
+		answerText:'this is answer 5',
+		dateCreated:'',
+	},
+	'q1002':{
+		id:'q1002',
 		questionText: 'this is 2',
 		answerText:'this is answer 2',
 		dateCreated:'',
