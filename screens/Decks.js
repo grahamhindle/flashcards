@@ -1,12 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {Button } from 'react-native'
-import { Container, Icon, Left,Right,  Content, List,  ListItem, Text } from 'native-base'
+import { StyleProvider, Container, Icon, Left,Right,  Content, List,  ListItem, Text } from 'native-base'
 import { Font } from 'expo';
 import { Ionicons } from '@expo/vector-icons'
 import { connect } from 'react-redux'
 import { getDeckData } from '../actions/deckActions'
 import { getQuestionData} from '../actions/questionActions'
+
 
 
 
@@ -38,9 +39,10 @@ class Decks extends React.Component {
 		const {decks} = this.props
 		
 		return (
-			<Container>
+		 
+			<Container >
 			
-				<Content>
+				<Content >
 					<List dataArray={decks}
 						renderRow={(data)=>
 							<ListItem
@@ -66,6 +68,7 @@ class Decks extends React.Component {
 				</Content>
 				
 			</Container>
+			
 			
 		)
 	}

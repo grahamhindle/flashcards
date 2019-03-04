@@ -1,8 +1,10 @@
 import React,{Component} from 'react'
-import {Container,Text,Content} from 'native-base'
+import {Container, Segment, Header, Text,Button,Content} from 'native-base'
 import {Animated, StyleSheet,View, TouchableOpacity} from 'react-native'
+import Item from '../native-base-theme/components/Item';
 
 class FlipCard extends Component {
+
     componentWillMount(){
         this.animatedValue = new Animated.Value(0);
         this.value = 0;
@@ -50,11 +52,7 @@ class FlipCard extends Component {
         }
 
         return (
-          <View>
-          <TouchableOpacity style= {styles.button} onPress={() => this.flipCard()}>
-              <Text>Show Answer</Text>
-
-            </TouchableOpacity>
+         
             <Container style={styles.container}>
             <View>
               <Animated.View style={[styles.flipCard, frontAnimatedStyle]}>
@@ -70,10 +68,17 @@ class FlipCard extends Component {
               </Animated.View>
               
             </View>
-           
+            <View>
+            <TouchableOpacity style= {styles.button} onPress={() => this.flipCard()}>
+                <Text>Show Answer</Text>
+              </TouchableOpacity>
+            </View>
           </Container>
           
-            </View>
+          
+          
+            
+
         )
     }
 }
@@ -81,23 +86,25 @@ class FlipCard extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: "center",
-        justifyContent: "center",
+        justifyContent: "flex-start",
+        alignItems:'center',
         fontSize:40
       },
     flipCard:{
         width:400,
-        height:300,
+        height:600,
+        marginTop: '10%',
         alignItems:'center',
         justifyContent: 'center',
         backgroundColor: 'gray',
         borderStyle: 'solid',
         borderColor: 'blue',
-        borderWidth: 5,
+        borderWidth: 2,
         borderRadius: 25,
         backfaceVisibility: 'hidden'
     },
     flipCardBack: {
+        
         backgroundColor: 'white',
         position: 'absolute',
         top: 0
@@ -109,10 +116,11 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
       },
       button: {
+        flexDirection:'row',
         alignItems: 'center',
         backgroundColor: '#DDDDDD',
         padding: 10,
-        width:200,
+        width:'100%',
       },
 })
 

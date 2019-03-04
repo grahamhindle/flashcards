@@ -17,13 +17,12 @@ import { Font } from 'expo';
 import { Ionicons } from '@expo/vector-icons'
 const styles = StyleSheet.create({
 	container: {
-	  flex: 1,
 	  justifyContent: 'center',
 	  paddingHorizontal: 10
 	},
 	button: {
 	  alignItems: 'center',
-	  backgroundColor: '#DDDDDD',
+	  backgroundColor: '#7c4dff',
 	  padding: 10,
 	  width:'100%',
 	},
@@ -68,7 +67,7 @@ class DeckScreen extends React.Component {
         
         <Content>
           <Card>
-            <CardItem>
+            <CardItem >
               <Left>
                 <Thumbnail source={{uri: 'Image URL'}} />
                 <Body>
@@ -88,7 +87,7 @@ class DeckScreen extends React.Component {
 				style={styles.button}
          		onPress={this.startQuiz}
        		>
-         		<Text> Start Quiz </Text>
+         		<Text style={{color:'white'}}> Start Quiz </Text>
        		</TouchableOpacity>
 			
 			

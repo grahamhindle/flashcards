@@ -19,7 +19,8 @@ const RootStack = createStackNavigator(
 		initialRouteName: "Decks",
     	defaultNavigationOptions: {
       		headerStyle: {
-        	backgroundColor: '#2196f3',
+            
+						backgroundColor: '#1565c0',
       },
       	headerTintColor: '#fff',
       	headerTitleStyle: {

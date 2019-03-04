@@ -1,7 +1,7 @@
 import React from 'react'
-import { TextInput} from 'react-native'
+import { TextInput,View} from 'react-native'
 import { connect } from 'react-redux'
-import {Container,Button,Form, TextArea, Input,Content, Text} from 'native-base'
+import {Container,Item, Button,Form, TextArea, Input,Content, Text} from 'native-base'
 import _ from 'lodash'
 import StartupImage from '../Components/StartupImage'
 import {saveNewQuestion} from  '../actions'
@@ -34,25 +34,29 @@ class AddQuestion extends React.Component {
 		return (
 			<Container> 
 				<Content>
-				<StartupImage/>
-				<Form>
-					<TextInput style={{height: 120, fontSize:24,borderColor: 'gray', borderWidth: 2}}
+				<StartupImage  />
+				<Form style={{marginTop:50}}>
+					<Item rounded>
+					<Input
 						id='questionName'
-						multiline = {true}
-         		numberOfLines = {4}
+         				numberOfLines = {1}
 						placeholder="Enter new Question"
 						onChangeText={(questionText) => this.setState({questionText})}
 						value={this.state.questionText}> 
-					</TextInput>
-					<TextInput style={{height: 120,fontSize:24, borderColor: 'gray', borderWidth: 2}}
+					</Input>
+					</Item>
+					
+					<Item rounded style={{marginTop:20}}>
+					<Input 
 						id='answerName'
-						multiline = {true}
-         		numberOfLines = {4}
+         				numberOfLines = {1}
 						placeholder="Enter the Answer"
 						onChangeText={(answerText) => this.setState({answerText})}
 						value={this.state.answerText}> 
-					</TextInput>
-					<Button 
+					</Input>
+					
+					</Item>
+					<Button style={{marginTop:50}}
 						full 
 						onPress= {this.handleNewQuestion}>
 						<Text>Submit</Text>
