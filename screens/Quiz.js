@@ -3,6 +3,7 @@ import {  Button } from 'react-native'
 import FlipCard from '../Components/FlipCard'
 import { View,Text,DeckSwiper} from 'native-base'
 import {connect} from 'react-redux'
+import {selectQuestions , selectDeck} from '../Selectors/questionSelector'
 
 class Quiz extends React.Component {
     static navigationOptions = ({ navigation }) => ({
@@ -40,9 +41,7 @@ const mapStateToProps = (state,ownProps)=> {
 	const id = ownProps.navigation.getParam('deckId')
 	console.log('id', id)
 	return {
-		questionSet: state.decks[id].questions
-
-		
+		questionSet: selectQuestions(state,id)	
 	}
 }
 export default connect(
