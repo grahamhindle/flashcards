@@ -8,24 +8,28 @@ let decks=
 		name:'my deck1',
 		questions:['q1001','q1002'],
 		dateCreated:'',
+		score: 0,
 	},
 	'10002': {
 		id:'10002',
 		name:'my deck2',
 		questions:['q1001','q1003'],
 		dateCreated:'',
+		score: 0,
 	},
 	'10003': {
 		id:'10003',
 		name:'my deck3',
 		questions:['q1002','q1004'],
 		dateCreated:'',
+		score: 0,
 	},
 	'10004': {
 		id:'10004',
 		name:'my deck4',
 		questions:['q1001','q1002','q1003','q1004'],
 		dateCreated:'',
+		score: 0,
 	},
 }
 	
@@ -81,7 +85,8 @@ export function formatNewDeck (deckName) {
     id: generateUID(),
     timestamp: Date.now(),
     name: deckName,
-    questions: [],
+		questions: [],
+		score:0,
 	}
 }
 	
@@ -123,16 +128,6 @@ export function formatNewQuestion (  questionText, answerText ) {
 		  ...questions,
 		  [formattedQuestion.id]: formattedQuestion
 		}
-		
-
-		/*decks = {
-		  ...decks,
-		  [id]: {
-			...decks[id],
-			questions: decks[id].questions.concat([formattedQuestion.id])
-		  }
-		}
-		*/
 		
 		res(formattedQuestion)
 	  }, 500)

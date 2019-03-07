@@ -1,14 +1,19 @@
 import React,{Component} from 'react'
-import {Container, Card,CardItem, Body, Left, Text} from 'native-base'
+import {Container, Button, Card,CardItem, Body, Left,Right, Text} from 'native-base'
 import {Animated, StyleSheet,View, TouchableOpacity} from 'react-native'
+
 
 
 
 class FlipCard extends Component {
   state = {
-    textString: 'Show Answer'
+    textString: 'Show Answer',
+    toggle: true
   }
     componentWillMount(){
+      this.setState((state) => {
+        return {toggle: true }
+      })
         this.animatedValue = new Animated.Value(0);
         this.value = 0;
         this.animatedValue.addListener(({ value }) => {
@@ -44,7 +49,16 @@ class FlipCard extends Component {
       
     }
 
+    correct=()=>{
+      //set toggle state to not show button
+      this.setState((state) => {
+        return {toggle: false }
+      })
+      this.props.correct()
+    }
+    
     render(){
+      console.log('props',this.props)
         const frontAnimatedStyle = {
             transform: [
                 { rotateY: this.frontInterpolate}
@@ -56,24 +70,20 @@ class FlipCard extends Component {
                 { rotateY: this.backInterpolate}
             ]
         }
-
+        
+        
         return (
-         
-            
-            
-              <Card >
-              <CardItem>
+          <Card >
+            <CardItem>
               <Left>
-                
                 <Body>
-                  <Text>{this.props.score}</Text>
-                  <Text note>GeekyAnts</Text>
+                  <Text >{`There are ${this.props.number} questions in this deck`}</Text>
+                  <Text>{`Score on this Deck: ${this.props.score}`}</Text>
                 </Body>
               </Left>
             </CardItem>
               <CardItem style={[styles.flipCard]}>
-                
-              
+               
               <Animated.View style={[styles.flipCard, frontAnimatedStyle]}>
                 <Text style={styles.flipText}>
                   {this.props.front}
@@ -87,15 +97,18 @@ class FlipCard extends Component {
             </CardItem>
             <CardItem>
               <Left>
-                <TouchableOpacity  onPress={this.props.correct}>
+              { this.state.toggle ? 
+                <Button small style={{backgroundColor:'#6200ee'}} onPress={()=>this.correct()}>
                   <Text>Correct ?</Text>
-                </TouchableOpacity>
+                </Button>
+                : null}
               </Left>
-              <Body>
-                <TouchableOpacity  onPress={() => this.flipCard()}>
+              
+              <Right>
+                <Button small style={{backgroundColor:'#6200ee'}}  onPress={() => this.flipCard()}>
                   <Text>{this.state.textString}</Text>
-                </TouchableOpacity>
-              </Body>
+                </Button>
+              </Right>
             </CardItem>
             </Card>
           
@@ -119,16 +132,16 @@ const styles = StyleSheet.create({
     flipCard:{
         flex:1,
         width:400,
-        height:300,
+        height:500,
         alignItems:'center',
         justifyContent: 'center',
-        backgroundColor: '#bbdefb',
+        backgroundColor: 'white',
         backfaceVisibility: 'hidden'
     },
     flipCardBack: {
         
         
-        backgroundColor: '#c5cae9',
+        backgroundColor: '#bb86fc',
         position: 'absolute',
         top:0
     },
@@ -141,10 +154,11 @@ const styles = StyleSheet.create({
         
       },
       button: {
-        
+        width: 50,
+        height: 25,
         alignItems: 'center',
-        backgroundColor: 'gray',
-        color:'white',
+        backgroundColor: '#6200ee',
+        color:'#fff',
         padding: 10,
         
       },

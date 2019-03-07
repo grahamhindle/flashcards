@@ -36,7 +36,7 @@ class AddDeck extends Component {
         </Input>
           </CardItem>
           <CardItem>
-          <Button 
+          <Button style={{backgroundColor: '#6200ee'}}
             full 
             onPress= {this.handleNewDeck}>
             <Text>Submit</Text>
