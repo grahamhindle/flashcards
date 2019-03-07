@@ -66,7 +66,7 @@ class FlipCard extends Component {
               <Left>
                 
                 <Body>
-                  <Text>NativeBase</Text>
+                  <Text>{this.props.score}</Text>
                   <Text note>GeekyAnts</Text>
                 </Body>
               </Left>
@@ -87,7 +87,7 @@ class FlipCard extends Component {
             </CardItem>
             <CardItem>
               <Left>
-                <TouchableOpacity  onPress={() => this.correct()}>
+                <TouchableOpacity  onPress={this.props.correct}>
                   <Text>Correct ?</Text>
                 </TouchableOpacity>
               </Left>
@@ -119,16 +119,16 @@ const styles = StyleSheet.create({
     flipCard:{
         flex:1,
         width:400,
-        height:400,
+        height:300,
         alignItems:'center',
         justifyContent: 'center',
-        backgroundColor: '#fff9c4',
+        backgroundColor: '#bbdefb',
         backfaceVisibility: 'hidden'
     },
     flipCardBack: {
         
         
-        backgroundColor: '#ffee58',
+        backgroundColor: '#c5cae9',
         position: 'absolute',
         top:0
     },
