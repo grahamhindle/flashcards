@@ -58,7 +58,6 @@ class FlipCard extends Component {
     }
     
     render(){
-      console.log('props',this.props)
         const frontAnimatedStyle = {
             transform: [
                 { rotateY: this.frontInterpolate}

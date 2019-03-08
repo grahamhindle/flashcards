@@ -8,7 +8,6 @@ const getDecks = (state,id) => (state.decks[id])
 export const selectDeck = createSelector(
   [getDecks,(state,id) => id],
   (deck) => {
-    console.log('deck',deck)
     return deck
   }
 )

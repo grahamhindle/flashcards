@@ -5,7 +5,6 @@ import { View,Card, Button,Container ,Icon, Text,DeckSwiper} from 'native-base'
 import { TouchableOpacity, StyleSheet } from 'react-native'
 import {connect} from 'react-redux'
 import {selectQuestions , selectDeck} from '../Selectors/questionSelector'
-import Results from '../screens/Results'
 import {clearLocalNotification, setLocalNotification} from '../utils/apitools'
 
 const styles = StyleSheet.create({
@@ -99,7 +98,7 @@ class Quiz extends React.Component {
 }
 const mapStateToProps = (state,ownProps)=> {
 	const id = ownProps.navigation.getParam('deckId')
-	console.log('id', id)
+
 	return {
 		questionSet: selectQuestions(state,id)	
 

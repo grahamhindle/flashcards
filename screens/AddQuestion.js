@@ -30,7 +30,7 @@ class AddQuestion extends React.Component {
 		}))
 	}
 	render() {
-		console.log('add q',this.props)
+		
 		return (
 			<Container> 
 				<Content>
