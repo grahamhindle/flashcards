@@ -6,6 +6,7 @@ import { TouchableOpacity, StyleSheet } from 'react-native'
 import {connect} from 'react-redux'
 import {selectQuestions , selectDeck} from '../Selectors/questionSelector'
 import Results from '../screens/Results'
+import {clearLocalNotification, setLocalNotification} from '../utils/apitools'
 
 const styles = StyleSheet.create({
 	button: {
@@ -49,6 +50,8 @@ class Quiz extends React.Component {
 		this.setState((state) => {
 			return {correct: state.correct + 1}
 		})
+		clearLocalNotification()
+			.then(setLocalNotification)
 }
 	render() {
 		
