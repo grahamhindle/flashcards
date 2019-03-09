@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {Button } from 'react-native'
+import {Button , StyleSheet} from 'react-native'
 import { StyleProvider, Container, Icon, Left,Right,  Content, List,  ListItem, Text } from 'native-base'
 import { Font } from 'expo';
 import { Ionicons } from '@expo/vector-icons'
@@ -8,6 +8,17 @@ import { connect } from 'react-redux'
 import { getDeckData } from '../actions/deckActions'
 import { getQuestionData} from '../actions/questionActions'
 
+const styles = StyleSheet.create({
+	button: {
+		marginBottom: 50,
+		width: 50,
+		alignItems: 'center',
+		backgroundColor: '#6200ee'
+	},
+	buttonText: {
+		color: '#fff'
+	}
+})
 
 
 
@@ -55,14 +66,16 @@ class Decks extends React.Component {
 							</Left>
 						<Text>{data.questions !== 'undefined' ?`${data.questions.length} questions`: 'no questions'}</Text>
 							<Right>
-								<Icon name="arrow-forward" 
-								onPress={() => 
-									this.props.navigation.navigate('Deck',
-								{deckId: data.id, deckName: data.name})
-								}/>
-								 
+							<Button rounded style={StyleSheet.button}
+							onPress={() => 
+								this.props.navigation.navigate('Deck',
+							{deckId: data.id, deckName: data.name})
+							}
+							title='View'
+							color="#6200ee">
+						
+						</Button>
 							</Right>
-								
 							</ListItem>}>
 					</List>
 				</Content>

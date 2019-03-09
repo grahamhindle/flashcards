@@ -8,12 +8,15 @@ You can  :
         
 * add new decks
 * add new question/answer pairs- you must format the questions and answers
+* to select a deck to start a quiz select a deck by pressing view
 * if you are right hit the correct button
 * throughout the quiz you will see your score
 * when you finish a deck you can choose to restart the quiz or navigate back to another deck
 * Each deck has functionality to either swipe to the next card, or use the buttons to move through the deck.
 * Show Answer turns the card over to reveal the answer
 * 
+
+
 
 
 
